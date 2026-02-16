@@ -1,0 +1,24 @@
+{
+  "name": "whatapp-automation",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "This project contains the boilerplate of whatsapp automation using node.js.",
+  "main": "./src/index.js",
+  "scripts": {
+    "start": "nodemon ./src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "whatsapp",
+    "automation"
+  ],
+  "author": "vismay gamit",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.8.4",
+    "crypto": "^1.0.1",
+    "dotenv": "^16.4.7",
+    "express": "^5.1.0",
+    "nodemon": "^3.1.9"
+  }
+}

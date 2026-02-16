@@ -1,0 +1,70 @@
+<h2>Setup Instructions</h2>
+<h3>Setting up the Webhook</h3>
+<ol>
+    <li>Update the .env file with your WhatsApp Business API values.</li>
+    <li>Install ngrok</li>
+    <li>Install the dependecies: npm install</li>
+    <li>Run the project by: npm run start</li>
+    <li>ngrok http http://localhost:3040 (Please install ngrok before run it)</li>
+    <li>Copy the ngrok URL with endpoint, verify token and set it as the webhook URL in your WhatsApp Business API settings.(WhatsApp->Configuration)<br/>Ex: https://d5c7-103-47-106-241.ngrok-free.app/api/webhook</li>
+    <li>Click on verify and save button</li><br/>
+    OR<br/><br/>
+    <li style="list-style-type: none;">Watch video tutorial: <a href="https://youtu.be/DBNiWopmqcw?si=n2_AALfCWEjTcU0R" target="_blank">Webhook Setup Video</a></li>
+</ol>
+
+<h3>Setting up the Flow Webhook</h3>
+<ol>
+    <li>Update the .env file with your WhatsApp Business API values.</li>
+    <li>Install ngrok</li>
+    <li>npm install</li>
+    <li>Run the project by: npm run start</li>
+    <li>ngrok http http://localhost:3040 (Please install ngrok before run it)</li>
+    <li><b>In Meta WhatsApp Flows</b></li>
+    <ol>
+        <li>Copy the ngrok URL with endpoint in your WhatsApp Manager->Flows->Endpoint in setendpoint URI.<br/>Ex: https://d5c7-103-47-106-241.ngrok-free.app/api/flowwebhook</li>
+        <li>Add Phone number(Select no)</li>
+    </ol>
+    <li><b>Sign public key</b></li>
+    <ol>
+        <li>node src/util/keyGenerator.js {passphrase}</li>
+        <li>Open <a href="https://www.postman.com/meta/whatsapp-business-platform/example/24926895-089e2917-2802-4730-8bad-9a24084b70fe" target="_blank">postman collection and fork it.</a></li>
+        <li>Go to WhatsApp Flows API collection->Setup Endpoint Encryption->Set Encryption Public Key</li>
+        <li>Update Authorize token and business phone number id in postman</li>
+        <li>Copy public key from console and Paste in business_public_key in body in postman</li>
+        <li>Click on Send, Response should be true</li>
+    </ol>
+    <li><b>Connect Meta App</b></li>
+    <ol>
+        <li>Select app(veriy in meta dashboard)</li>
+    </ol>
+    <li><b>Health Check</b></li>
+    <ol>
+        <li>Click on Run Health Check</li>
+        <li>If any error occure check in console and troubleshoot</li>
+    </ol>
+    <br/>
+    OR<br/><br/>
+    <li style="list-style-type: none;">Watch video tutorial: <a href="https://youtu.be/1UcPh2zTDy4?si=SdG-y6c8xeA4MYPF" target="_blank">Flow Webhook Setup Video</a></li>
+</ol>
+
+<h3>Catalog Setup, Note: It will not work with test number</h3>
+<ol>
+    <li>Go to Commerce Manager, create catalog and add items.</li>
+    <li>After adding the product go to WhatsApp Manager->Catalog and select the catalog from the list.</li>
+    <li>Create catalog template with created catalog from Message template </li>
+    <li>Replace the template details and product id in src/util/interactive.js -> sendSareeProduct </li>
+</ol>
+
+<p>For more detailed information, refer to the official WhatsApp Business API documentation.</p>
+<ol>
+    <li><a href="https://developers.facebook.com/docs/whatsapp/cloud-api/guides/send-messages" target="_blank">Send Types of Messages</a></li>
+    <li><a href="https://developers.facebook.com/docs/whatsapp/cloud-api/webhooks/payload-examples" target="_blank">Payload examples</a></li>
+    <li><a href="https://business.facebook.com/direct-support/?business_id=1319166032346586" target="_blank">Meta Support</a></li>
+    <li><a href="https://developers.facebook.com/docs/whatsapp/flows/reference/flowsapi" target="_blank">Flows API</a></li>
+    <li><a href="https://developers.facebook.com/docs/whatsapp/flows/playground" target="_blank">Flow Playground</a></li>
+    <li><a href="https://developers.facebook.com/docs/whatsapp/flows/reference/components/" target="_blank">Flow Components</a></li>
+  </ol>
+
+<p>Note: ngrok provides a temporary public URL. For production use, consider a more permanent solution.</p>
+
+
